@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mandulo Nuts</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage" class="login-page">
+    <div class="login-box">
+        <h2>Mandulo Nuts</h2>
+        <input type="password" id="loginPassword" placeholder="Enter password">
+        <button id="loginBtn">Login</button>
+        <p id="loginError"></p>
+    </div>
+</div>
+
+<!-- APP -->
+<div id="app" style="display:none;">
+    <aside class="sidebar">
+        <h3>Mandulo🥜</h3>
+        <a class="active" onclick="showTab('dashboard', this)">Dashboard</a>
+        <a onclick="showTab('transactions', this)">Transactions</a>
+        <a onclick="showTab('analytics', this)">Analytics</a>
+        <a onclick="showTab('carbon', this)">Carbon</a>
+        <a onclick="showTab('settings', this)">Settings</a>
+    </aside>
+
+    <main>
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="tab">
+
+<h1>Business Dashboard</h1>
+
+<div class="dashboard-grid">
+
+<div class="card">
+<h3>Total Income</h3>
+<span id="income">E0</span>
+</div>
+
+<div class="card">
+<h3>Total Expenses</h3>
+<span id="expenses">E0</span>
+</div>
+
+<div class="card">
+<h3>Profit</h3>
+<span id="profit">E0</span>
+</div>
+
+<div class="card">
+<h3>Health Score</h3>
+<span id="healthScore">0</span>
+</div>
+
+</div>
+
+
+<div class="dashboard-section">
+
+<h2>Reports</h2>
+
+<button onclick="downloadReport()" class="download-btn">
+Download Business Report
+</button>
+
+</div>
+
+
+<div class="dashboard-section">
+
+<h2>Live Activity</h2>
+
+<ul id="activityFeed"></ul>
+
+</div>
+
+</section>
+
+
+        <!-- TRANSACTIONS -->
+        <section id="transactions" class="tab hidden">
+            <h1>Transactions</h1>
+
+            <form id="transactionForm">
+                <select id="type">
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+                <input type="text" id="description" placeholder="Description" required>
+                <input type="number" id="amount" placeholder="Amount (E)" required>
+                <button type="submit">Save</button>
+            </form>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Carbon</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionTable"></tbody>
+            </table>
+        </section>
+
+       <!-- ANALYTICS -->
+       <section id="analytics" class="tab hidden">
+
+           <h1>Financial Analytics</h1>
+
+           <h3>VISIALISATION</h3>
+           <canvas id="profitChart"></canvas>
+
+           <h3 style="margin-top:40px;">Income vs Expenses</h3>
+           <canvas id="financeChart"></canvas>
+
+        </section>
+
+        <!-- CARBON -->
+        <section id="carbon" class="tab hidden">
+
+           <h1>Carbon Sustainability</h1>
+
+           <div class="cards">
+
+           <div class="card">
+            Total Carbon
+           <span id="carbonTotal">0 kg</span>
+           </div>
+
+           <div class="card">
+            Trees Needed
+           <span id="treesNeeded">0</span>
+           </div>
+
+           </div>
+
+           <div class="card" style="margin-top:30px;">
+            Sustainability Status
+           <span id="carbonStatus">Calculating...</span>
+           </div>
+
+           <div class="card" style="margin-top:30px;">
+            Recommendation
+           <span id="carbonAdvice"></span>
+           </div>
+
+        </section>
+
+        <!-- SETTINGS -->
+        <section id="settings" class="tab hidden">
+            <h1>Settings</h1>
+            <p>THE WEBSITE IS STILL ON DEVELOPMENT PROCESS. TRUST THE PROCESS</p>
+            <p>COPYRIGHT SUBJECTED TO MANDULO MOBILE-(MSP).</p>
+            <p>Mandulo Mobile ©2026</p>
+        </section>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
